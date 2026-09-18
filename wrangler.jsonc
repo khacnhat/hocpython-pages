@@ -1,0 +1,9 @@
+{
+  // Tên này phải trùng đúng tên Worker trên dashboard Cloudflare.
+  "name": "hocpython-pages",
+  "compatibility_date": "2026-09-17",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
