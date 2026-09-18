@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lấy lại gốc lập trình cho sinh viên CNTT | Học Python</title>
   <meta name="description" content="Học lập trình Python ngay trên trình duyệt, nộp bài là biết đúng sai. Ba lộ trình dành cho sinh viên CNTT: lấy lại gốc lập trình, vững vàng các môn năm hai, làm dự án cho hồ sơ thực tập.">
-  <meta name="theme-color" content="#0B1524">
+  <meta name="theme-color" content="#FFFFFF">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Bạn bị mất gốc lập trình từ năm nhất? Vẫn còn kịp để lấy lại.">
   <meta property="og:description" content="Ba lộ trình học Python dành cho sinh viên CNTT, học ngay trên trình duyệt hoặc điện thoại, nộp bài là biết đúng sai.">
@@ -18,23 +18,27 @@
 
   <style>
     :root {
-      --bg: #0B1524;
-      --card: #17283C;
-      --card-2: #111E30;
-      --code: #0D1A29;
-      --line: #2A3B52;
-      --line-2: #3B5372;
-      --brand-dark: #2B5B84;
-      --orange: #FA5803;
-      --orange-hover: #E24F00;
-      --yellow: #FFD343;
-      --blue-label: #7FB2E0;
-      --white: #FFFFFF;
-      --text: #A9BACD;
-      --text-strong: #E1EAF3;
-      --muted: #8899AD;
-      --ok: #7ED9A0;
-      --err: #FF9A9A;
+      /* Nền tổng thể chuyển sang tông sáng, giữ lại các mảng nền tối (thanh trên cùng, chân trang,
+         khung code) để logo và thương hiệu vẫn rõ trên nền tối như bản gốc. */
+      --bg: #FFFFFF;
+      --card: #F4F8FC;
+      --card-2: #EAF2FA;
+      --code: #0B1524;
+      --line: #DCE6F0;
+      --line-2: #C2D3E3;
+      --brand-dark: #1D63B8;
+      --orange: #FF6A00;
+      --orange-hover: #E85E00;
+      --yellow: #FFC93C;
+      --blue-label: #1D6FC4;
+      --white: #0B1524;
+      --text: #45586E;
+      --text-strong: #1E293B;
+      --muted: #64748B;
+      --ok: #1FA971;
+      --err: #E5484D;
+      --on-dark: #FFFFFF;
+      --on-dark-muted: #C7D6E8;
       --wrap: 1200px;
     }
     * { box-sizing: border-box; }
@@ -51,9 +55,9 @@
     img { max-width: 100%; display: block; }
     h1, h2, h3 { margin: 0; color: var(--white); line-height: 1.2; }
     p { margin: 0; text-align: justify; }
-    a { color: var(--yellow); }
-    a:hover { color: #FFE27A; }
-    :focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+    a { color: var(--blue-label); }
+    a:hover { color: var(--orange); }
+    :focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
 
     .wrap { width: 100%; max-width: calc(var(--wrap) + 48px); margin: 0 auto; padding: 0 24px; }
     .section { padding-top: 112px; }
@@ -65,36 +69,36 @@
       font-family: inherit; font-weight: 700; text-decoration: none; border-radius: 10px;
       cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease;
     }
-    .btn-main { background: var(--orange); color: var(--white); border: 0; }
-    .btn-main:hover { background: var(--orange-hover); color: var(--white); }
-    .btn-ghost { background: transparent; color: var(--yellow); border: 1px solid var(--yellow); }
-    .btn-ghost:hover { background: var(--yellow); color: var(--bg); }
+    .btn-main { background: var(--orange); color: var(--on-dark); border: 0; }
+    .btn-main:hover { background: var(--orange-hover); color: var(--on-dark); }
+    .btn-ghost { background: transparent; color: var(--blue-label); border: 1px solid var(--blue-label); }
+    .btn-ghost:hover { background: var(--blue-label); color: var(--on-dark); }
 
-    /* Thanh trên cùng */
-    .topbar { position: sticky; top: 0; z-index: 10; background: rgba(11, 21, 36, 0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    /* Thanh trên cùng: giữ nền tối để logo (chữ sáng) vẫn rõ như bản gốc */
+    .topbar { position: sticky; top: 0; z-index: 10; background: rgba(11, 21, 36, 0.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
     .topbar .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .topbar img { height: 44px; width: auto; }
     .topnav { display: flex; align-items: center; gap: 28px; }
-    .topnav a.link { color: var(--text); text-decoration: none; font-size: 15px; }
-    .topnav a.link:hover { color: var(--white); }
+    .topnav a.link { color: var(--on-dark-muted); text-decoration: none; font-size: 15px; }
+    .topnav a.link:hover { color: var(--on-dark); }
     .topnav .btn { font-size: 15px; padding: 11px 20px; }
 
     /* Hero */
     .hero { padding-top: 80px; padding-bottom: 64px; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 56px; align-items: center; }
     .hero-copy { display: flex; flex-direction: column; gap: 28px; }
     .hero h1 { font-size: 46px; line-height: 1.18; font-weight: 800; }
-    .hero h1 span { color: var(--yellow); }
+    .hero h1 span { color: var(--orange); }
     .hero-lead { font-size: 20px; line-height: 1.6; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
     .hero-actions .btn-main { font-size: 18px; padding: 18px 32px; }
     .hero-actions .text-link { font-weight: 600; font-size: 17px; padding: 12px 0; }
 
-    /* Khung code chạy thử */
+    /* Khung code chạy thử: khung tối kiểu editor giữa trang sáng để nổi bật */
     .try { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
     .try-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     .try-head .file { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); }
     .try-task { font-size: 17px; line-height: 1.55; color: var(--white); text-align: left; }
-    .try-task strong { color: var(--yellow); font-weight: 600; }
+    .try-task strong { color: var(--orange); font-weight: 600; }
     .try label { font-size: 13px; color: var(--muted); }
     .try textarea {
       width: 100%; height: 120px; resize: none; background: var(--code); color: #E6EDF5;
@@ -105,15 +109,15 @@
     .try-actions .btn-main { font-size: 16px; padding: 12px 24px; }
     .try-actions .btn-reset { background: transparent; color: var(--text); border: 1px solid var(--line); font-size: 15px; font-weight: 400; padding: 12px 18px; }
     .try-actions .btn-reset:hover { color: var(--white); border-color: var(--line-2); }
-    .result { min-height: 132px; background: var(--code); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
-    .result-idle { font-size: 15px; color: var(--muted); }
-    .result-title { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; color: var(--white); line-height: 1.4; }
+    .result { min-height: 132px; background: var(--code); border: 1px solid var(--line-2); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+    .result-idle { font-size: 15px; color: var(--on-dark-muted); }
+    .result-title { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; color: var(--on-dark); line-height: 1.4; }
     .dot { flex-shrink: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--yellow); }
     .dot.ok { background: var(--ok); }
     .dot.err { background: var(--err); }
-    .result-detail { font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; white-space: pre-line; }
-    .result-next { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 6px; font-size: 15px; color: var(--white); }
-    .result-next a { white-space: nowrap; font-weight: 700; }
+    .result-detail { font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; white-space: pre-line; color: var(--on-dark-muted); }
+    .result-next { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 6px; font-size: 15px; color: var(--on-dark); }
+    .result-next a { white-space: nowrap; font-weight: 700; color: var(--yellow); }
 
     /* Dải điểm tin cậy */
     .trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -144,10 +148,10 @@
     .courses li::before {
       content: counter(course); flex-shrink: 0; width: 28px; height: 28px; margin-top: -3px;
       border: 1px solid var(--line-2); border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--yellow);
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--orange);
     }
     .courses-extra { display: flex; gap: 10px; align-items: center; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 15px; }
-    .tag { flex-shrink: 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--bg); background: var(--blue-label); padding: 3px 8px; border-radius: 4px; line-height: 1.4; }
+    .tag { flex-shrink: 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--on-dark); background: var(--blue-label); padding: 3px 8px; border-radius: 4px; line-height: 1.4; }
     .price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .price { font-size: 32px; font-weight: 800; color: var(--white); line-height: 1.2; }
     .retail { font-size: 15px; }
@@ -163,7 +167,7 @@
 
     /* Số liệu */
     .stats { margin-top: 72px; }
-    .stat { padding-top: 24px; border-top: 2px solid var(--yellow); }
+    .stat { padding-top: 24px; border-top: 2px solid var(--orange); }
     .stat strong { display: block; font-size: 44px; font-weight: 800; color: var(--white); line-height: 1.2; }
     .stat span { font-size: 16px; }
 
@@ -185,25 +189,26 @@
       font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.4;
     }
     .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: "+"; flex-shrink: 0; font-size: 28px; font-weight: 400; color: var(--yellow); line-height: 1; }
+    .faq summary::after { content: "+"; flex-shrink: 0; font-size: 28px; font-weight: 400; color: var(--orange); line-height: 1; }
     .faq details[open] summary::after { content: "\2212"; }
     .faq details p { padding: 0 0 24px; max-width: 760px; }
 
-    /* Kêu gọi cuối trang */
+    /* Kêu gọi cuối trang: khối xanh đậm nổi bật giữa nền sáng */
     .final { margin-top: 112px; background: var(--brand-dark); border-radius: 20px; padding: 80px 72px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center; }
-    .final h2 { font-size: 52px; font-weight: 800; line-height: 1.15; }
+    .final h2 { font-size: 52px; font-weight: 800; line-height: 1.15; color: var(--on-dark); }
     .final h2 span { color: var(--yellow); }
-    .final p { font-size: 20px; line-height: 1.6; color: var(--text-strong); max-width: 720px; text-align: center; }
+    .final p { font-size: 20px; line-height: 1.6; color: var(--on-dark-muted); max-width: 720px; text-align: center; }
     .final-buttons { width: 100%; max-width: 1000px; }
     .final-buttons .btn { flex-direction: column; gap: 2px; padding: 18px; border-radius: 12px; line-height: 1.35; }
     .final-buttons .btn b { font-size: 17px; }
     .final-buttons .btn span { font-size: 15px; font-weight: 400; }
 
-    /* Chân trang */
-    .footer { margin-top: 96px; border-top: 1px solid var(--line); }
+    /* Chân trang: giữ nền tối để logo vẫn rõ như bản gốc */
+    .footer { margin-top: 96px; background: var(--code); border-top: 1px solid rgba(255, 255, 255, 0.08); }
     .footer .wrap { padding-top: 40px; padding-bottom: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
     .footer img { height: 40px; width: auto; }
     .footer nav { display: flex; gap: 28px; font-size: 15px; }
+    .footer nav a { color: var(--on-dark-muted); }
 
     /* Máy tính bảng */
     @media (max-width: 1024px) {
@@ -420,7 +425,6 @@
         </article>
       </div>
     </section>
-
     <!-- Học xong có gì -->
     <section class="wrap section">
       <h2 class="section-title">Học xong, bạn sẽ có gì để đưa vào hồ sơ?</h2>
@@ -474,7 +478,6 @@
         </figure>
       </div>
     </section>
-
     <!-- Hỏi đáp -->
     <section class="wrap section faq" id="hoi-dap">
       <h2 class="section-title">Câu hỏi thường gặp</h2>
@@ -527,7 +530,6 @@
       </nav>
     </div>
   </footer>
-
   <script>
     (function () {
       // Chuyển tham số quảng cáo (utm_*, fbclid, gclid...) sang link checkout để đo được nguồn đơn hàng.
@@ -563,7 +565,6 @@
         if (out === EXPECTED.normalize('NFC')) return { kind: 'ok', title: 'Bạn làm đúng rồi, bài đã được chấp nhận', detail: 'Máy in ra:\n' + out };
         return { kind: 'warn', title: 'Code đã chạy được nhưng kết quả chưa khớp', detail: 'Máy in ra: ' + out + '\nCần in ra: ' + EXPECTED };
       }
-
       function el(tag, cls, text) {
         var n = document.createElement(tag);
         if (cls) n.className = cls;
